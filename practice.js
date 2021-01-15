@@ -17,6 +17,11 @@
 
 function count(num){
     // Code here
+    let count = num
+    return function() {
+      count = count + 1
+      return count
+    }
 };
 
 
@@ -40,14 +45,16 @@ var newClosure = count(5);
 */
  
 // Code here
-    
-    
+    function greeting(name){
+      let greetName = name
+      return greeting => `${greeting} ${greetName}`
+    }
 
 
 // After you have created the greeting function above, uncomment the code below, but do not edit it
 
-// const greetingClosure = greeting('Henry');
-// let greet = greetingClosure('Hello')
+const greetingClosure = greeting('Henry');
+let greet = greetingClosure('Hello')
     
 
 
@@ -64,8 +71,27 @@ var newClosure = count(5);
 */
 
 // Code here
-
-
+function calculatorCreator(){
+  let num = 0
+  return {
+    add: function(number){
+      num += number
+      return num
+    },
+    subtract: function(number){
+      num -= number
+      return num
+    },
+    multiply: function(number){
+      num *= number
+      return num
+    },
+    divide: function(number){
+      num /= number
+      return num
+    }
+  }
+}
 
 ////////// PROBLEM 4 //////////
 /* 
@@ -75,7 +101,13 @@ var newClosure = count(5);
 */
 
 // Code here
-
+class Puppy{
+  constructor(happiness, energy, behavior){
+    this.happiness = happiness
+    this.energy = energy
+    this.behavior = behavior
+  }
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -88,7 +120,18 @@ var newClosure = count(5);
 */
 
 // Code here
-
+class Car{
+  constructor(manufacturer, year){
+    this.manufacturer = manufacturer
+    this.year = year
+  }
+  displayManufacturer(){
+    return this.manufacturer
+  }
+  displayYear(){
+    return this.year
+  }
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -103,3 +146,19 @@ var newClosure = count(5);
 */
 
 // Code here
+class Panda{
+  constructor(happiness, energy, behavior){
+    this.happiness = happiness
+    this.energy = energy
+    this.behavior = behavior
+  }
+  getsTreat(){
+    this.happiness += 20
+    return this.happiness
+  }
+  takesNap(){
+    this.energy -= 45
+    this.behavior += 15
+  }
+}
+
